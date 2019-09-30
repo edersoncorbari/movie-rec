@@ -1,0 +1,10 @@
+language: scala
+scala:
+  - 2.11.12
+jdk:
+  - openjdk10
+branches:
+  only:
+  - master
+script:
+   - sbt ++$TRAVIS_SCALA_VERSION clean coverage test coverageReport
