@@ -1,0 +1,34 @@
+create keyspace movies with replication = { 'class': 'SimpleStrategy', 'replication_factor': 1 };
+
+create table movies.udata (
+    user_id int,
+    item_id int,
+    rating double,
+    primary key(user_id, item_id)
+);
+
+create table movies.uitem (
+    movie_id int,
+    name text,
+    primary key(movie_id)
+);
+
+copy movies.udata (user_id, item_id, rating) from 'u.data.now' with delimiter='\t';
+
+
+curljson -XPOST http://localhost:8080/movie-model-train
+curljson -XGET http://localhost:8080/movie-get-recommendation/1
+
+export SPARK_LOCAL_IP="127.0.0.1"
+
+-------------------
+Test
+-------------------
+
+create table movies.udata (
+    user_id int primary key,
+    item_id int,
+    rating double
+);
+
+
