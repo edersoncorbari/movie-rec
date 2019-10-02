@@ -1,4 +1,4 @@
-package movie.rec.adapters
+package movie.rec.adapters.http
 
 import akka.actor.ActorSystem
 import akka.http.scaladsl.Http
@@ -13,7 +13,7 @@ import scala.concurrent.{ExecutionContext, Future}
 import scala.language.postfixOps
 import scala.concurrent.duration._
 import movie.rec.interceptors.RestResponse
-import movie.rec.domain.MovieRecommendation
+import movie.rec.domain._
 import movie.rec.domain.Config
 
 object ConfigParam extends Config {
@@ -37,7 +37,7 @@ class ApiService(server: String = ConfigParam.server, port: Int = ConfigParam.po
   config.set("spark.cassandra.connection.host", ConfigParam.repository)
 
   lazy val sparkContext = new SparkContext(config)
-  lazy val movieRecommendation = system.actorOf(MovieRecommendation.props(sparkContext))
+  lazy val movieRecommendation = system.actorOf(MovieFactory.props(sparkContext))
 
   val errorHandler = ExceptionHandler {
     case e: Exception => complete {
@@ -51,8 +51,8 @@ class ApiService(server: String = ConfigParam.server, port: Int = ConfigParam.po
         path(Segment) { id =>
           get {
             complete {
-              (movieRecommendation ? MovieRecommendation.GenerateRecommendations(id.toInt))
-                .mapTo[MovieRecommendation.Recommendations]
+              (movieRecommendation ? MovieFactory.GenerateRecommendations(id.toInt))
+                .mapTo[MovieFactory.RecommendationItemWithNames]
                 .flatMap(result => Future {
                   (StatusCodes.OK -> result)
                 })
@@ -61,7 +61,7 @@ class ApiService(server: String = ConfigParam.server, port: Int = ConfigParam.po
         }
       } ~ path("movie-model-train") {
         post {
-          movieRecommendation ! MovieRecommendation.Train
+          movieRecommendation ! MovieFactory.Train
 
           complete {
             (StatusCodes.OK -> GenericResponse("Training started..."))

@@ -7,14 +7,19 @@ create table movies.udata (
     primary key(user_id, item_id)
 );
 
-create table movies.uitem (
+create table movies.uresult (
+    user_id int,
     movie_id int,
-    name text,
-    primary key(movie_id)
+    rating decimal,
+    datetime timestamp,
+    primary key(user_id, movie_id)
 );
 
-copy movies.udata (user_id, item_id, rating) from 'u.data.now' with delimiter='\t';
+create table movies.results (user_id int, movie_id int, rating decimal, datetime timestamp, primary key(user_id, movie_id));
 
+
+copy movies.udata (user_id, item_id, rating) from 'u.data.now' with delimiter='\t';
+copy movies.uitem (movie_id, name) from 'u.item.now' with delimiter='\t';
 
 curljson -XPOST http://localhost:8080/movie-model-train
 curljson -XGET http://localhost:8080/movie-get-recommendation/1
@@ -31,4 +36,6 @@ create table movies.udata (
     rating double
 );
 
+
+create table udata(user_id int,item_id int,rating double, primary key(user_id));
 

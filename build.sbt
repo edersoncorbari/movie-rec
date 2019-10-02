@@ -26,3 +26,4 @@ libraryDependencies ++= {
 
 libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "2.4.1"
 libraryDependencies += "com.typesafe" % "config" % "1.3.4"
+libraryDependencies += "joda-time" % "joda-time" % "2.10.4"
