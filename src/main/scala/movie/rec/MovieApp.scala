@@ -9,8 +9,8 @@ import movie.rec.domain.Config
 
 object MovieApp extends App with Config {
 
-  implicit val system = ActorSystem(http.name)
+  implicit val system: ActorSystem = ActorSystem(http.name)
   implicit val timeout: Timeout = http.timeout seconds
 
-  new ApiService(http.server).start()
+  new ApiService(http.server, http.port).start()
 }

@@ -4,8 +4,13 @@ version := "0.1"
 scalaVersion := "2.11.12"
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
+coverageMinimum := 50
+coverageFailOnMinimum := false
+coverageHighlighting := true
+
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
+logLevel := Level.Error
 
 libraryDependencies ++= {
   val sparkVersion = "2.4.1"
@@ -27,3 +32,10 @@ libraryDependencies ++= {
 libraryDependencies += "com.datastax.spark" %% "spark-cassandra-connector" % "2.4.1"
 libraryDependencies += "com.typesafe" % "config" % "1.3.4"
 libraryDependencies += "joda-time" % "joda-time" % "2.10.4"
+
+assemblyMergeStrategy in assembly := {
+  case PathList("META-INF", _*) => MergeStrategy.discard
+  case _ => MergeStrategy.first
+}
+test in assembly := {}
+assemblyJarName in assembly := "movie-rec.jar"

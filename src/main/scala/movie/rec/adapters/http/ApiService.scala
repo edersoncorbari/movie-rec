@@ -1,7 +1,6 @@
 package movie.rec.adapters.http
 
 import akka.actor.ActorSystem
-import akka.http.scaladsl.Http
 import akka.http.scaladsl.model.StatusCodes
 import akka.http.scaladsl.server.Directives._
 import akka.http.scaladsl.server.ExceptionHandler
@@ -16,25 +15,17 @@ import movie.rec.interceptors.RestResponse
 import movie.rec.domain._
 import movie.rec.domain.Config
 
-object ConfigParam extends Config {
-  val server: String = http.server
-  val port: Int = http.port
-  val name: String = http.name
-  val master: String = spark.master
-  val repository: String = cassandra.server
-}
-
-class ApiService(server: String = ConfigParam.server, port: Int = ConfigParam.port)(implicit val system: ActorSystem)
-  extends ApiProtocol with RestResponse {
+class ApiService(server: String, port: Int)(implicit val system: ActorSystem)
+  extends ApiProtocol with RestResponse with Config {
 
   implicit val materializer: Materializer = ActorMaterializer()
   implicit val ec: ExecutionContext = system.dispatcher
   implicit val timeout: Timeout = 30 seconds
 
   lazy val config = new SparkConf()
-  config.setMaster(ConfigParam.master)
-  config.setAppName(ConfigParam.name)
-  config.set("spark.cassandra.connection.host", ConfigParam.repository)
+  config.setMaster(spark.master)
+  config.setAppName(http.name)
+  config.set("spark.cassandra.connection.host", cassandra.server)
 
   lazy val sparkContext = new SparkContext(config)
   lazy val movieRecommendation = system.actorOf(MovieFactory.props(sparkContext))
@@ -71,5 +62,5 @@ class ApiService(server: String = ConfigParam.server, port: Int = ConfigParam.po
     }
   }
 
-  def start(): Unit = Http().bindAndHandle(route, server, port)
+  def start(): Unit = akka.http.scaladsl.Http().bindAndHandle(route, server, port)
 }
