@@ -113,3 +113,14 @@ Enter the project root folder and run the commands, if this is the first time SB
 ```shell
 $ sbt compile test run
 ```
+
+Rock and roll! The Akka Http is running with Spark. 
+
+> Note: You can use the *curl* command directly, but jsoncurl makes json's response pretty!
+
+Now! In another terminal run the command to train the model:
+
+```shell
+$ curljson -XPOST http://localhost:8080/movie-model-train
+```
+
