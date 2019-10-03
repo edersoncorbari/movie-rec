@@ -2,7 +2,9 @@
 
 A simple Demo of a Movie Recommendation System for Big Data. Scalable development using Spark ML (Machine Learning), Cassandra and Akka technologies.
 
-![](https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec.png)
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec.png">
+</p>
 
 ## Synopsis
 
@@ -16,7 +18,9 @@ More detailed information can be found from the sites below:
 
 The project architecture uses Akka, Spark and Cassandra, these components can work in a distributed way.
 
+<p align="center"> 
 <img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec-diagram.png" width="800" height="300">
+</p>
 
 ### Quick start
 
@@ -63,10 +67,49 @@ Creating the schema and loading the datasets:
 $ docker exec -it cassandra-movie-rec cqlsh -f /tmp/ml-100k/schema.cql
 ```
 
-#### 3. Verifying data in Cassandra
+#### 3. Data Model
 
-Enter the Cassandra console and verify the data:
+The keyspace is called *movies*. The data in Cassandra is modeled as follows:
+
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/cassandra-data-models.png">
+</p>
+
+Organization:
+
+| Collection | Comments |
+| ------ | ------ | 
+| *movies.uitem* | Contains available movies, total dataset used is 1682. |
+| *movies.udata* | Contains movies rated by each user, total dataset used is 100000.| 
+| *movies.uresult* | Where the data calculated by the model is saved, by default it is empty. |
+
+#### 4. Verifying the data
+
+Enter the Cassandra console using *CQLSH* and verify the data:
 
 ```shell
 $ docker exec -it cassandra-movie-rec cqlsh
+```
+
+The syntax is similar to our old known SQL:
+
+```sql
+cqlsh> use movies;
+cqlsh:movies> select count(1) from uitems; -- Must be: 1682
+cqlsh:movies> select count(1) from udata; -- Must be: 100000
+cqlsh:movies> describe uresult;
+```
+
+#### 5. Running the Project
+
+It is important before setting the spark variable:
+
+```shell
+$ export SPARK_LOCAL_IP="127.0.0.1"
+```
+
+Enter the project root folder and run the commands, if this is the first time SBT will download the necessary dependencies.
+
+```shell
+$ sbt compile test run
 ```
