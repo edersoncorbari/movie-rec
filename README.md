@@ -67,7 +67,7 @@ Creating the schema and loading the datasets:
 $ docker exec -it cassandra-movie-rec cqlsh -f /tmp/ml-100k/schema.cql
 ```
 
-#### 3. Data Model and Verifying Data
+#### 3. Data Model
 
 The keyspace is called *movies*. The data in Cassandra is modeled as follows:
 
@@ -83,8 +83,21 @@ Organization:
 | *movies.udata* | Contains movies rated by each user, total dataset used is 100000.| 
 | *movies.uresult* | Where the data calculated by the model is saved, by default it is empty. |
 
-Enter the Cassandra console using CQLSH and verify the data:
+#### 4. Verifying the data
+
+Enter the Cassandra console using *CQLSH* and verify the data:
 
 ```shell
 $ docker exec -it cassandra-movie-rec cqlsh
 ```
+
+The syntax is similar to our old known SQL:
+
+```sql
+cqlsh> use movies;
+cqlsh:movies> select count(1) from uitems; -- Must be: 1682
+cqlsh:movies> select count(1) from udata; -- Must be: 100000
+cqlsh:movies> describe uresult;
+```
+
+
