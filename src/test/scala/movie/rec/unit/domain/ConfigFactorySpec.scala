@@ -21,7 +21,7 @@ class ConfigFactorySpec extends FlatSpec with Matchers with Config {
   }
 
   it should "validating (cassandra) config directives" in {
-    cassandra.server shouldEqual "192.168.56.103"
+    cassandra.server shouldEqual "127.0.0.1"
     cassandra.keyspace shouldEqual "movies"
     cassandra.tableData shouldEqual "udata"
     cassandra.tableItem shouldEqual "uitem"
