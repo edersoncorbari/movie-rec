@@ -69,7 +69,7 @@ $ docker exec -it cassandra-movie-rec cqlsh -f /tmp/ml-100k/schema.cql
 
 #### 3. Data Model and Verifying Data
 
-The data in Cassandra is modeled as follows:
+The keyspace is called *movies*. The data in Cassandra is modeled as follows:
 
 <p align="center"> 
 <img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/cassandra-data-models.png">
@@ -79,9 +79,9 @@ Organization:
 
 | Collection | Comments |
 | ------ | ------ | 
-| **uitem** | Contains available movies, total dataset used is 1682. |
-| **udata** | Contains movies rated by each user, total dataset used is 100000.| 
-| **uresult** | Where the data calculated by the model is saved, by default it is empty. |
+| **movies.uitem** | Contains available movies, total dataset used is 1682. |
+| **movies.udata** | Contains movies rated by each user, total dataset used is 100000.| 
+| **movies.uresult** | Where the data calculated by the model is saved, by default it is empty. |
 
 Enter the Cassandra console using CQLSH and verify the data:
 
