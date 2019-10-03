@@ -28,7 +28,7 @@ Now run the commands below to compile the project:
 
 ```shell
 $ git clone https://github.com/edersoncorbari/movie-rec.git
-$ cd scala-lab
+$ cd movie-rec
 ```
 
 #### 2. Docking and Configuring Cassandra
