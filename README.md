@@ -247,11 +247,15 @@ To development this demonstration project the books were used:
 
 #### 7.1. Scala-Machine-Learning-Projects-real-world
 
-Check out Chapter: 4. Model-based Movie Recommendation Engine. Disponible:
+Check out Chapter: 4. Model-based Movie Recommendation Engine. 
+
+Disponible:
 
   * [https://www.amazon.com/Scala-Machine-Learning-Projects-real-world-ebook/dp/B079K52VVK](https://www.amazon.com/Scala-Machine-Learning-Projects-real-world-ebook/dp/B079K52VVK)
 
 #### 7.2. Reactive Programming with Scala and Akka
+
+Disponible:
 
   * [https://www.amazon.com/Reactive-Programming-Scala-Akka/dp/1783984341](https://www.amazon.com/Reactive-Programming-Scala-Akka/dp/1783984341)
 
