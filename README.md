@@ -12,7 +12,7 @@ This is a project developed for studies. Using **Machine Learning**, applying th
 
 More detailed information can be found from the sites below:
 
- * [https://edersoncorbari.github.io/tutorials/](https://edersoncorbari.github.io/tutorials/)
+ * [https://edersoncorbari.github.io/tutorials/building-spark-ml-recommendation-system](https://edersoncorbari.github.io/tutorials/building-spark-ml-recommendation-system)
  
 ### Architecture
 
