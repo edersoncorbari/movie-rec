@@ -239,7 +239,7 @@ model {
 }
 ```
 
-The model uses the Alternating Least Squares (ALS) algorithm. This setting controls forecasts and is linked with how much and what kind of data we have.
+The model uses the Alternating Least Squares (*ALS*) algorithm. This setting controls forecasts and is linked with how much and what kind of data we have. Check more: [Spark Collaborative Filtering](https://spark.apache.org/docs/2.2.0/ml-collaborative-filtering.html)
 
 #### 7. References
 
@@ -249,14 +249,13 @@ To development this demonstration project the books were used:
 
 Check out Chapter: 4. Model-based Movie Recommendation Engine. 
 
-Disponible:
+Available:
 
   * [https://www.amazon.com/Scala-Machine-Learning-Projects-real-world-ebook/dp/B079K52VVK](https://www.amazon.com/Scala-Machine-Learning-Projects-real-world-ebook/dp/B079K52VVK)
 
 #### 7.2. Reactive Programming with Scala and Akka
 
-Disponible:
+Available:
 
   * [https://www.amazon.com/Reactive-Programming-Scala-Akka/dp/1783984341](https://www.amazon.com/Reactive-Programming-Scala-Akka/dp/1783984341)
-
 
