@@ -4,9 +4,11 @@ version := "0.1"
 scalaVersion := "2.11.12"
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
-coverageMinimum := 50
+coverageMinimum := 5
 coverageFailOnMinimum := false
 coverageHighlighting := true
+
+scalastyleConfig := baseDirectory.value / "project/scalastyle-config.xml"
 
 javacOptions ++= Seq("-source", "1.8", "-target", "1.8")
 scalacOptions ++= Seq("-deprecation", "-unchecked", "-feature")
