@@ -8,7 +8,7 @@ A simple Demo of a **Movie Recommendation System** for Big Data. Scalable develo
 
 ## Synopsis
 
-This is a project developed for studies. Using **Machine Learning**, applying the Spark ML **Collaborative Filtering** model. The system consists of an Api Rest, with two endpoints. The first endpoint trains the model, the second endpoint returns a list of movie recommendations to a user using their UUID.
+This is a project developed for studies. Using **Machine Learning**, applying the Spark ML **Collaborative Filtering** model. The system consists of an API Rest, with *two endpoints*. The first endpoint trains the model, the second endpoint returns a list of movie recommendations to a user using their UUID.
 
 More detailed information can be found from the sites below:
 
@@ -16,7 +16,7 @@ More detailed information can be found from the sites below:
  
 ### Architecture
 
-The project architecture uses Akka, Spark and Cassandra, these components can work in a distributed way.
+The project architecture uses [Akka](https://akka.io), [Spark](https://spark.apache.org) and [Cassandra](http://cassandra.apache.org), these components can work in a distributed way.
 
 <p align="center"> 
 <img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec-diagram.png" width="800" height="300">
@@ -24,7 +24,7 @@ The project architecture uses Akka, Spark and Cassandra, these components can wo
 
 ### Quick start
 
-You need to install SBT on your machine and create a docker for Cassandra.
+You need to install [SBT](https://www.scala-sbt.org/download.html) on your machine and create a docker for Cassandra.
 
 #### 1. Get the code
 
