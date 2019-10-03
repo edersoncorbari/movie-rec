@@ -1,6 +1,6 @@
 # Movie Rec
 
-A simple Demo of a Movie Recommendation System for Big Data. Scalable development using Spark ML (Machine Learning), Cassandra and Akka technologies.
+A simple Demo of a **Movie Recommendation System** for Big Data. Scalable development using Spark ML (**Machine Learning**), Cassandra and Akka technologies.
 
 <p align="center"> 
 <img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec.png">
@@ -96,13 +96,13 @@ The syntax is similar to our old known SQL:
 ```sql
 cqlsh> use movies;
 cqlsh:movies> select count(1) from uitems; -- Must be: 1682
-cqlsh:movies> select count(1) from udata; -- Must be: 100000
+cqlsh:movies> select count(1) from udata;  -- Must be: 100000
 cqlsh:movies> describe uresult;
 ```
 
 #### 5. Running the Project
 
-It is important before setting the spark variable:
+It is important before setting the Spark variable:
 
 ```shell
 $ export SPARK_LOCAL_IP="127.0.0.1"
@@ -124,3 +124,99 @@ Now! In another terminal run the command to train the model:
 $ curljson -XPOST http://localhost:8080/movie-model-train
 ```
 
+*The answer should be:*
+
+```json
+{
+  "msg": "Training started..."
+}
+```
+
+This will start the model training. You can then run the command to see results with recommendations. Example:
+
+```shell
+$ curljson -XGET http://localhost:8080/movie-get-recommendation/1
+```
+
+> Note: The number parameter at the end is the uuid of a user, you look for other ids in Cassandra and test.
+
+*The answer should be:*
+
+```json
+{
+    "items": [
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 390,
+            "name": "Fear of a Black Hat (1993)",
+            "rating": 6.024536312414079,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 408,
+            "name": "Close Shave, A (1995)",
+            "rating": 5.477789547740662,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 718,
+            "name": "In the Bleak Midwinter (1995)",
+            "rating": 5.451157889522041,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 960,
+            "name": "Naked (1993)",
+            "rating": 5.538010212703824,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 962,
+            "name": "Ruby in Paradise (1993)",
+            "rating": 5.474417923036245,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 1019,
+            "name": "Die xue shuang xiong (Killer, The) (1989)",
+            "rating": 6.06760015836501,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 1159,
+            "name": "Stalker (1979)",
+            "rating": 5.734765600568821,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 1449,
+            "name": "Pather Panchali (1955)",
+            "rating": 5.467671438168102,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 1463,
+            "name": "Boys, Les (1997)",
+            "rating": 6.1775396236474664,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "movieId": 1643,
+            "name": "Angel Baby (1995)",
+            "rating": 5.531300372911295,
+            "userId": 1
+        }
+    ]
+}
+```
+
+That’s icing on the cake! Remember that the setting is set to show *10* movies recommendations per user.
