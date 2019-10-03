@@ -100,4 +100,16 @@ cqlsh:movies> select count(1) from udata; -- Must be: 100000
 cqlsh:movies> describe uresult;
 ```
 
+#### 5. Running the Project
 
+It is important before setting the spark variable:
+
+```shell
+$ export SPARK_LOCAL_IP="127.0.0.1"
+```
+
+Enter the project root folder and run the commands, if this is the first time SBT will download the necessary dependencies.
+
+```shell
+$ sbt compile test run
+```
