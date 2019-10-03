@@ -79,9 +79,9 @@ Organization:
 
 | Collection | Comments |
 | ------ | ------ | 
-| **movies.uitem** | Contains available movies, total dataset used is 1682. |
-| **movies.udata** | Contains movies rated by each user, total dataset used is 100000.| 
-| **movies.uresult** | Where the data calculated by the model is saved, by default it is empty. |
+| *movies.uitem* | Contains available movies, total dataset used is 1682. |
+| *movies.udata* | Contains movies rated by each user, total dataset used is 100000.| 
+| *movies.uresult* | Where the data calculated by the model is saved, by default it is empty. |
 
 Enter the Cassandra console using CQLSH and verify the data:
 
