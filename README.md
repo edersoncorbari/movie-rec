@@ -1,6 +1,6 @@
 # Movie Rec
 
-A simple Demo of a Movie Recommendation System for Big Data. Scalable development using Spark ML (Machine Learning), Cassandra and Akka technologies.
+A simple Demo of a **Movie Recommendation System** for Big Data. Scalable development using Spark ML (**Machine Learning**), Cassandra and Akka technologies.
 
 <p align="center"> 
 <img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec.png">
@@ -96,13 +96,13 @@ The syntax is similar to our old known SQL:
 ```sql
 cqlsh> use movies;
 cqlsh:movies> select count(1) from uitems; -- Must be: 1682
-cqlsh:movies> select count(1) from udata; -- Must be: 100000
+cqlsh:movies> select count(1) from udata;  -- Must be: 100000
 cqlsh:movies> describe uresult;
 ```
 
 #### 5. Running the Project
 
-It is important before setting the spark variable:
+It is important before setting the Spark variable:
 
 ```shell
 $ export SPARK_LOCAL_IP="127.0.0.1"
@@ -113,3 +113,110 @@ Enter the project root folder and run the commands, if this is the first time SB
 ```shell
 $ sbt compile test run
 ```
+
+Rock and roll! The Akka Http is running with Spark. 
+
+> Note: You can use the *curl* command directly, but jsoncurl makes json's response pretty!
+
+Now! In another terminal run the command to train the model:
+
+```shell
+$ curljson -XPOST http://localhost:8080/movie-model-train
+```
+
+*The answer should be:*
+
+```json
+{
+  "msg": "Training started..."
+}
+```
+
+This will start the model training. You can then run the command to see results with recommendations. Example:
+
+```shell
+$ curljson -XGET http://localhost:8080/movie-get-recommendation/1
+```
+
+> Note: The number parameter at the end is the uuid of a user, you look for other ids in Cassandra and test.
+
+*The answer should be:*
+
+```json
+{
+    "items": [
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 613,
+            "name": "My Man Godfrey (1936)",
+            "rating": 6.485164882121823,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 718,
+            "name": "In the Bleak Midwinter (1995)",
+            "rating": 5.728434247420009,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 745,
+            "name": "Ruling Class, The (1972)",
+            "rating": 6.768538846961009,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1056,
+            "name": "Cronos (1992)",
+            "rating": 5.812607594988232,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1137,
+            "name": "Beautiful Thing (1996)",
+            "rating": 7.145126009205107,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1154,
+            "name": "Alphaville (1965)",
+            "rating": 6.196922528078046,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1205,
+            "name": "Secret Agent, The (1996)",
+            "rating": 6.041159524014422,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1269,
+            "name": "Love in the Afternoon (1957)",
+            "rating": 6.529481757021213,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1449,
+            "name": "Pather Panchali (1955)",
+            "rating": 5.95622158882095,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1475,
+            "name": "Bhaji on the Beach (1993)",
+            "rating": 5.929892254811888,
+            "userId": 1
+        }
+    ]
+}
+```
+
+That’s icing on the cake! Remember that the setting is set to show *10* movies recommendations per user.
