@@ -63,6 +63,8 @@ Creating the schema and loading the datasets:
 $ docker exec -it cassandra-movie-rec cqlsh -f /tmp/ml-100k/schema.cql
 ```
 
+#### 3. Verifying data in Cassandra
+
 Enter the Cassandra console and verify the data:
 
 ```shell
