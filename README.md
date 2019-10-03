@@ -146,73 +146,73 @@ $ curljson -XGET http://localhost:8080/movie-get-recommendation/1
 {
     "items": [
         {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
-            "movieId": 390,
-            "name": "Fear of a Black Hat (1993)",
-            "rating": 6.024536312414079,
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 613,
+            "name": "My Man Godfrey (1936)",
+            "rating": 6.485164882121823,
             "userId": 1
         },
         {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
-            "movieId": 408,
-            "name": "Close Shave, A (1995)",
-            "rating": 5.477789547740662,
-            "userId": 1
-        },
-        {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
             "movieId": 718,
             "name": "In the Bleak Midwinter (1995)",
-            "rating": 5.451157889522041,
+            "rating": 5.728434247420009,
             "userId": 1
         },
         {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
-            "movieId": 960,
-            "name": "Naked (1993)",
-            "rating": 5.538010212703824,
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 745,
+            "name": "Ruling Class, The (1972)",
+            "rating": 6.768538846961009,
             "userId": 1
         },
         {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
-            "movieId": 962,
-            "name": "Ruby in Paradise (1993)",
-            "rating": 5.474417923036245,
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1056,
+            "name": "Cronos (1992)",
+            "rating": 5.812607594988232,
             "userId": 1
         },
         {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
-            "movieId": 1019,
-            "name": "Die xue shuang xiong (Killer, The) (1989)",
-            "rating": 6.06760015836501,
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1137,
+            "name": "Beautiful Thing (1996)",
+            "rating": 7.145126009205107,
             "userId": 1
         },
         {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
-            "movieId": 1159,
-            "name": "Stalker (1979)",
-            "rating": 5.734765600568821,
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1154,
+            "name": "Alphaville (1965)",
+            "rating": 6.196922528078046,
             "userId": 1
         },
         {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1205,
+            "name": "Secret Agent, The (1996)",
+            "rating": 6.041159524014422,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1269,
+            "name": "Love in the Afternoon (1957)",
+            "rating": 6.529481757021213,
+            "userId": 1
+        },
+        {
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
             "movieId": 1449,
             "name": "Pather Panchali (1955)",
-            "rating": 5.467671438168102,
+            "rating": 5.95622158882095,
             "userId": 1
         },
         {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
-            "movieId": 1463,
-            "name": "Boys, Les (1997)",
-            "rating": 6.1775396236474664,
-            "userId": 1
-        },
-        {
-            "datetime": "Thu Oct 03 11:14:21 BRT 2019",
-            "movieId": 1643,
-            "name": "Angel Baby (1995)",
-            "rating": 5.531300372911295,
+            "datetime": "Thu Oct 03 15:37:34 BRT 2019",
+            "movieId": 1475,
+            "name": "Bhaji on the Beach (1993)",
+            "rating": 5.929892254811888,
             "userId": 1
         }
     ]
