@@ -8,6 +8,10 @@ A simple Demo of a Movie Recommendation System for Big Data. Scalable developmen
 
 This is a project developed for studies. Using **Machine Learning**, applying the Spark ML **Collaborative Filtering** model. The system consists of an Api Rest, with two endpoints. The first endpoint trains the model, the second endpoint returns a list of movie recommendations to a user using their UUID.
 
+More detailed information can be found from the sites below:
+
+ * [https://edersoncorbari.github.io/tutorials/](https://edersoncorbari.github.io/tutorials/)
+ 
 ### Architecture
 
 The project architecture uses Akka, Spark and Cassandra, these components can work in a distributed way.
