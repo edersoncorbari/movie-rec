@@ -220,3 +220,10 @@ $ curljson -XGET http://localhost:8080/movie-get-recommendation/1
 ```
 
 That’s icing on the cake! Remember that the setting is set to show *10* movies recommendations per user.
+
+You can also check the result in the uresult collection:
+
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec-term-result.png">
+</p>
+
