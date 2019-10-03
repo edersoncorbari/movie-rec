@@ -247,7 +247,7 @@ To development this demonstration project the books were used:
 
 #### 7.1. Scala-Machine-Learning-Projects-real-world
 
-Check out Chapter: 4. Model-based Movie Recommendation Engine. 
+Check out Chapter: *4. Model-based Movie Recommendation Engine.*
 
 Available:
 
