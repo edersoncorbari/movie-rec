@@ -10,4 +10,6 @@ This is a project developed for studies. Using **Machine Learning**, applying th
 
 ### Architecture
 
-Add infos here...
+The project architecture uses Akka, Spark and Cassandra, these components can work in a distributed way.
+
+<img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec-diagram.png" width="800" height="300">
