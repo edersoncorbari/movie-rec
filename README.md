@@ -245,7 +245,7 @@ The model uses the Alternating Least Squares (*ALS*) algorithm. This setting con
 
 To development this demonstration project the books were used:
 
-#### 7.1. Scala-Machine-Learning-Projects-real-world
+#### 7.1. Scala Machine Learning Projects
 
 Check out Chapter: *4. Model-based Movie Recommendation Engine.*
 
