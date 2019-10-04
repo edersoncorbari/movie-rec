@@ -106,7 +106,7 @@ Creating the schema and loading the datasets:
 $ docker exec -it cassandra-movie-rec cqlsh -f /tmp/ml-100k/schema.cql
 ```
 
-#### 4. Verifying the data
+#### 3. Verifying the data
 
 Enter the Cassandra console using *CQLSH* and verify the data:
 
@@ -123,7 +123,7 @@ cqlsh:movies> select count(1) from udata; -- Must be: 100000
 cqlsh:movies> describe uresult;
 ```
 
-#### 5. Running the Project
+#### 4. Running the Project
 
 It is important before setting the Spark variable:
 
@@ -250,7 +250,7 @@ You can also check the result in the *uresult* collection:
 <img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec-term-result.png">
 </p>
 
-#### 6. Model Predictions
+#### 5. Model Predictions
 
 The model and application training settings are in: (*src/main/resources/application.conf*)
 
@@ -264,11 +264,11 @@ model {
 
 The model uses the Alternating Least Squares (*ALS*) algorithm. This setting controls forecasts and is linked with how much and what kind of data we have. Check more: [Spark Collaborative Filtering](https://spark.apache.org/docs/2.2.0/ml-collaborative-filtering.html)
 
-#### 7. References
+#### 6. References
 
 To development this demonstration project the books were used:
 
-#### 7.1. Scala Machine Learning Projects
+#### 6.1. Scala Machine Learning Projects
 
 Check out Chapter: *4. Model-based Movie Recommendation Engine.*
 
@@ -276,7 +276,7 @@ Available:
 
   * [https://www.amazon.com/Scala-Machine-Learning-Projects-real-world-ebook/dp/B079K52VVK](https://www.amazon.com/Scala-Machine-Learning-Projects-real-world-ebook/dp/B079K52VVK)
 
-#### 7.2. Reactive Programming with Scala and Akka
+#### 6.2. Reactive Programming with Scala and Akka
 
 Available:
 
