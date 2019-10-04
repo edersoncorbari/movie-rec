@@ -113,7 +113,7 @@ $ export SPARK_LOCAL_IP="127.0.0.1"
 Enter the project root folder and run the commands, if this is the first time SBT will download the necessary dependencies.
 
 ```shell
-$ sbt compile test run
+$ sbt update compile test run
 ```
 
 Rock and roll! The Akka Http is running with Spark. 
