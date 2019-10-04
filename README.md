@@ -57,7 +57,19 @@ Make sure it's up and running.
 $ docker ps | grep cassandra
 ```
 
-In the *project directory* there are the datasets already prepared to put in Cassandra.
+You can also try to check like this:
+
+```shell
+docker exec -it cassandra-movie-rec uname -a
+```
+
+*The answer should be:*
+
+```shell
+Linux 883a6daf0c2d 5.0.0-23-generic #24~18.04.1-Ubuntu SMP Mon Jul 29 16:12:28 UTC 2019 x86_64 GNU/Linux
+```
+
+In the project directory *(movie-rec)* there are the datasets already prepared to put in Cassandra.
 
 ```shell
 $ cat dataset/ml-100k.tar.gz | docker exec -i cassandra-movie-rec tar zxvf - -C /tmp
