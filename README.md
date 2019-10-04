@@ -8,15 +8,15 @@ A simple Demo of a **Movie Recommendation System** for Big Data. Scalable develo
 
 ## Synopsis
 
-This is a project developed for studies. Using **Machine Learning**, applying the Spark ML **Collaborative Filtering** model. The system consists of an Api Rest, with two endpoints. The first endpoint trains the model, the second endpoint returns a list of movie recommendations to a user using their UUID.
+This is a project developed for studies. Using **Machine Learning**, applying the Spark ML **Collaborative Filtering** model. The system consists of an API Rest, with *two endpoints*. The first endpoint trains the model, the second endpoint returns a list of movie recommendations to a user using their UUID.
 
 More detailed information can be found from the sites below:
 
- * [https://edersoncorbari.github.io/tutorials/](https://edersoncorbari.github.io/tutorials/)
+ * [https://edersoncorbari.github.io/tutorials/building-spark-ml-recommendation-system](https://edersoncorbari.github.io/tutorials/building-spark-ml-recommendation-system)
  
 ### Architecture
 
-The project architecture uses Akka, Spark and Cassandra, these components can work in a distributed way.
+The project architecture uses [Akka](https://akka.io), [Spark](https://spark.apache.org) and [Cassandra](http://cassandra.apache.org), these components can work in a distributed way.
 
 <p align="center"> 
 <img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec-diagram.png" width="800" height="300">
@@ -24,7 +24,7 @@ The project architecture uses Akka, Spark and Cassandra, these components can wo
 
 ### Quick start
 
-You need to install SBT on your machine and create a docker for Cassandra.
+You need to install [SBT](https://www.scala-sbt.org/download.html) on your machine and create a docker for Cassandra.
 
 #### 1. Get the code
 
@@ -220,3 +220,42 @@ $ curljson -XGET http://localhost:8080/movie-get-recommendation/1
 ```
 
 That’s icing on the cake! Remember that the setting is set to show *10* movies recommendations per user.
+
+You can also check the result in the *uresult* collection:
+
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec-term-result.png">
+</p>
+
+#### 6. Model Predictions
+
+The model and application training settings are in: (*src/main/resources/application.conf*)
+
+```shell
+model {
+  rank = 10
+  iterations = 10
+  lambda = 0.01
+}
+```
+
+The model uses the Alternating Least Squares (*ALS*) algorithm. This setting controls forecasts and is linked with how much and what kind of data we have. Check more: [Spark Collaborative Filtering](https://spark.apache.org/docs/2.2.0/ml-collaborative-filtering.html)
+
+#### 7. References
+
+To development this demonstration project the books were used:
+
+#### 7.1. Scala Machine Learning Projects
+
+Check out Chapter: *4. Model-based Movie Recommendation Engine.*
+
+Available:
+
+  * [https://www.amazon.com/Scala-Machine-Learning-Projects-real-world-ebook/dp/B079K52VVK](https://www.amazon.com/Scala-Machine-Learning-Projects-real-world-ebook/dp/B079K52VVK)
+
+#### 7.2. Reactive Programming with Scala and Akka
+
+Available:
+
+  * [https://www.amazon.com/Reactive-Programming-Scala-Akka/dp/1783984341](https://www.amazon.com/Reactive-Programming-Scala-Akka/dp/1783984341)
+
