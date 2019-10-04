@@ -110,7 +110,7 @@ The syntax is similar to our old known SQL:
 ```sql
 cqlsh> use movies;
 cqlsh:movies> select count(1) from uitem; -- Must be: 1682
-cqlsh:movies> select count(1) from udata;  -- Must be: 100000
+cqlsh:movies> select count(1) from udata; -- Must be: 100000
 cqlsh:movies> describe uresult;
 ```
 
