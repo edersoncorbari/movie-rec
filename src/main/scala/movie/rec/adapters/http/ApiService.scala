@@ -20,7 +20,7 @@ class ApiService(server: String, port: Int)(implicit val system: ActorSystem)
 
   implicit val materializer: Materializer = ActorMaterializer()
   implicit val ec: ExecutionContext = system.dispatcher
-  implicit val timeout: Timeout = 30 seconds
+  implicit val timeout: Timeout = http.timeout seconds
 
   lazy val config = new SparkConf()
   config.setMaster(spark.master)
