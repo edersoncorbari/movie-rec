@@ -24,6 +24,31 @@ The project architecture uses [Akka](https://akka.io), [Spark](https://spark.apa
 <img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/movie-rec-diagram.png" width="800" height="300">
 </p>
 
+### Data Model
+
+The keyspace is called *movies*. The data in Cassandra is modeled as follows:
+
+<p align="center"> 
+<img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/cassandra-data-models.png">
+</p>
+
+Organization:
+
+| Collection | Comments |
+| ------ | ------ | 
+| *movies.uitem* | Contains available movies, total dataset used is 1682. |
+| *movies.udata* | Contains movies rated by each user, total dataset used is 100000.| 
+| *movies.uresult* | Where the data calculated by the model is saved, by default it is empty. |
+
+### Rest Server End-Points 
+
+The end-points available on the Rest Server are:
+
+| Method | End-Point | Comments           |
+| ------ | --------- | ------------------ |
+| POST   | /movie-model-train | Do the training of the model. |
+| GET    | /movie-get-recommendation/{ID} | Lists user recommended movies. | 
+
 ### Quick start
 
 You need to install [SBT](https://www.scala-sbt.org/download.html) on your machine and create a docker for Cassandra.
@@ -80,22 +105,6 @@ Creating the schema and loading the datasets:
 ```shell
 $ docker exec -it cassandra-movie-rec cqlsh -f /tmp/ml-100k/schema.cql
 ```
-
-#### 3. Data Model
-
-The keyspace is called *movies*. The data in Cassandra is modeled as follows:
-
-<p align="center"> 
-<img src="https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/cassandra-data-models.png">
-</p>
-
-Organization:
-
-| Collection | Comments |
-| ------ | ------ | 
-| *movies.uitem* | Contains available movies, total dataset used is 1682. |
-| *movies.udata* | Contains movies rated by each user, total dataset used is 100000.| 
-| *movies.uresult* | Where the data calculated by the model is saved, by default it is empty. |
 
 #### 4. Verifying the data
 
