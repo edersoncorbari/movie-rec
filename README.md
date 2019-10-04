@@ -1,5 +1,7 @@
 # Movie Rec
 
+[![N|Solid](https://raw.githubusercontent.com/edersoncorbari/movie-rec/master/doc/img/open-source-logo.png)](https://en.wikipedia.org/wiki/Open_source)
+
 A simple Demo of a **Movie Recommendation System** for Big Data. Scalable development using Spark ML (**Machine Learning**), Cassandra and Akka technologies.
 
 <p align="center"> 
